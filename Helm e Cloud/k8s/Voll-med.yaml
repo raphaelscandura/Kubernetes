@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: vollmed-api
-        image: leonardosartorello/vollmed:v8
+        image: leonardosartorello/vollmed:v9
         ports:
         - containerPort: 3000
         env:
@@ -27,6 +27,12 @@ spec:
             configMapKeyRef:
               name: dados           # The ConfigMap this value comes from.
               key: DB_HOST # The key to fetch.
+        - name: REDIS_HOST # Notice that the case is different here
+                                     # from the key name in the ConfigMap.
+          valueFrom:
+            configMapKeyRef:
+              name: dados           # The ConfigMap this value comes from.
+              key: REDIS_HOST # The key to fetch.
         - name: DB_DATABASE # Notice that the case is different here
                                      # from the key name in the ConfigMap.
           valueFrom:
