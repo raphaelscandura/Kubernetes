@@ -5,7 +5,7 @@ metadata:
   labels:
     app: webapp
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: webapp
@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: webapp
-        image: gcr.io/labs-297313/webapp
+        image: gcr.io/NOME_DO_PROJETO/webapp
         ports:
         - containerPort: 5000
